@@ -8,6 +8,10 @@ R, by default, leaves debugging symbols in the shared libraries it creates when 
 
 In the `configure` file for an R package, add a line at the end that calls `r-stripper`.  Alternatively, the code from the `stripper` file can be pasted directly in to your `configure` file (preferably as the last thing that happens).
 
+### Supported Linkers
+
+Currently `r-stripper` only supports `gcc`, `g++`, `clang`, or `clang++` for debug symbol stripping.  Adding others is fairly trivial, but I simply don't have access to them.  Pull requests are welcome.
+
 ### Author
 
 Daniel C. Dillon
