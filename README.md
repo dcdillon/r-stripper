@@ -6,7 +6,7 @@ R, by default, leaves debugging symbols in the shared libraries it creates when 
 
 ### Usage
 
-In the `configure` file for an R package, add a line at the end that calls `r-stripper`.  Alternatively, the code from the `stripper` file can be pasted directly in to your `configure` file (preferably as the last thing that happens).
+In the `configure` file for an R package, add a line at the end that calls `stripper`.  Alternatively, the code from the `stripper` file can be pasted directly in to your `configure` file (preferably as the last thing that happens).
 
 ### Supported Linkers
 
