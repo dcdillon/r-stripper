@@ -109,10 +109,6 @@ else
             esac
         done <src/Makevars
     fi
-    
-    # Place the empty string value in R_STRIP_LINKER_OPTION 
-    
-    echo "R_STRIP_LINKER_OPTION=\"\"" >> src/Makevars.R_STRIP_LINKER_OPTION
 fi
 
 # If we created a src/Makevars.R_STRIP_LINKER_OPTION file, then backup the
