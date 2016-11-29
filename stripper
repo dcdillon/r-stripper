@@ -13,6 +13,9 @@
 # You should have received a copy of the GNU General Public License
 # along with r-stripper.  If not, see <http://www.gnu.org/licenses/>.
 
+# Takes an executable that IS A linker and determines if it knows
+# how to tell it to strip a shared library.  Returns 0 on success,
+# 1 otherwise.
 check_supported_linker()
 {
     if [ "$1" != "" ]; then
@@ -26,6 +29,10 @@ check_supported_linker()
     return 1
 }
 
+# Takes an executable that MIGHT BE a linker (or might be something
+# like gcc, clang, etc.) and determines whether it knows how to
+# discover the actual linker or whether it is a linker.  Returns 0
+# if we support the linker, 1 otherwise.
 check_supported_linker_command()
 {
     if [ "$1" != "" ]; then
