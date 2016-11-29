@@ -14,7 +14,7 @@ Because we only get Bourne shell guaranteed with our R install process, we can't
 
 ### Supported Linkers
 
-Currently `r-stripper` only supports `gcc`, `g++`, `clang`, or `clang++` for debug symbol stripping.  Adding others is fairly trivial, but I simply don't have access to them.  Pull requests are welcome.
+Currently `r-stripper` only supports GNU `ld`, and GNU `gold` for debug symbol stripping.  Adding others is fairly trivial, but I simply don't have access to them.  Pull requests are welcome.
 
 ### Author
 
