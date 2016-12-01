@@ -1,0 +1,2 @@
+PKG_CPPFLAGS = -Wpedantic
+PKG_LIBS = -lrt

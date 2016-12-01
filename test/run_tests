@@ -1,0 +1,70 @@
+#!/bin/bash
+
+set -e
+
+echo Testing from the command line
+
+pushd TestPackage
+
+echo Testing with bash - no PKG_LIBS
+cp src/Makevars.base src/Makevars
+bash ./configure
+diff -q src/Makevars src/Makevars.base.expected
+echo Success!
+
+echo Testing with bash - previous PKG_LIBS
+cp src/Makevars.2.base src/Makevars
+bash ./configure
+diff -q src/Makevars src/Makevars.2.base.expected
+echo Success!
+
+echo Testing with bash - no Makevars
+rm src/Makevars
+bash ./configure
+diff -q src/Makevars src/Makevars.expected
+echo Success!
+
+echo Testing with sh - no PKG_LIBS
+cp src/Makevars.base src/Makevars
+sh ./configure
+diff -q src/Makevars src/Makevars.base.expected
+echo Success!
+
+echo Testing with sh - previous PKG_LIBS
+cp src/Makevars.2.base src/Makevars
+sh ./configure
+diff -q src/Makevars src/Makevars.2.base.expected
+echo Success!
+
+echo Testing with sh - no Makevars
+rm src/Makevars
+sh ./configure
+diff -q src/Makevars src/Makevars.expected
+echo Success!
+
+echo Testing with ash - no PKG_LIBS
+cp src/Makevars.base src/Makevars
+ash ./configure
+diff -q src/Makevars src/Makevars.base.expected
+echo Success!
+
+echo Testing with ash - no PKG_LIBS
+cp src/Makevars.2.base src/Makevars
+ash ./configure
+diff -q src/Makevars src/Makevars.2.base.expected
+echo Success!
+
+echo Testing with ash - no Makevars
+rm src/Makevars
+ash ./configure
+diff -q src/Makevars src/Makevars.expected
+echo Success!
+
+popd
+
+
+echo Testing from R
+
+cp TestPackage/src/Makevars.base TestPackage/src/Makevars
+R CMD check TestPackage 
+echo Success!
