@@ -1,4 +1,4 @@
-## r-stripper
+# r-stripper [![Build Status](https://travis-ci.org/dcdillon/r-stripper.svg?branch=master)](https://travis-ci.org/dcdillon/r-stripper)
 
 ### Description
 
