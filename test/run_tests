@@ -66,5 +66,5 @@ popd
 echo Testing from R
 
 cp TestPackage/src/Makevars.base TestPackage/src/Makevars
-R CMD check TestPackage 
+R CMD check --no-manual --no-vignettes --no-build-vignettes TestPackage 
 echo Success!
