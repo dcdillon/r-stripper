@@ -24,6 +24,21 @@ bash ./configure
 diff -q src/Makevars src/Makevars.expected
 echo Success!
 
+echo Testing with bash - failure
+cp src/Makevars.base src/Makevars
+bash ./configure fail
+diff -q src/Makevars src/Makevars.base
+echo Success!
+
+echo Testing with bash - failure no Makevars
+rm src/Makevars
+bash ./configure fail
+
+if [ -f src/Makevars ]; then
+    exit 1
+fi
+echo Success!
+
 echo Testing with sh - no PKG_LIBS
 cp src/Makevars.base src/Makevars
 sh ./configure
@@ -42,6 +57,21 @@ sh ./configure
 diff -q src/Makevars src/Makevars.expected
 echo Success!
 
+echo Testing with sh - failure
+cp src/Makevars.base src/Makevars
+sh ./configure fail
+diff -q src/Makevars src/Makevars.base
+echo Success!
+
+echo Testing with sh - failure no Makevars
+rm src/Makevars
+sh ./configure fail
+
+if [ -f src/Makevars ]; then
+    exit 1
+fi
+echo Success!
+
 echo Testing with ash - no PKG_LIBS
 cp src/Makevars.base src/Makevars
 ash ./configure
@@ -58,6 +88,21 @@ echo Testing with ash - no Makevars
 rm src/Makevars
 ash ./configure
 diff -q src/Makevars src/Makevars.expected
+echo Success!
+
+echo Testing with ash - failure
+cp src/Makevars.base src/Makevars
+ash ./configure fail
+diff -q src/Makevars src/Makevars.base
+echo Success!
+
+echo Testing with ash - failure no Makevars
+rm src/Makevars
+ash ./configure fail
+
+if [ -f src/Makevars ]; then
+    exit 1
+fi
 echo Success!
 
 popd
