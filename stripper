@@ -90,6 +90,9 @@ check_linker()
     return 0
 }
 
+# Takes an argument with the name of the Makevars file to modify (assuming it
+# is in src/ and modifies it accordingly.  If the second parameter is set to
+# "create-if-missing" it will create the file if it is not already there.
 modify_makevars()
 {
     MAKEVARS_FILE="$1"
@@ -135,7 +138,7 @@ modify_makevars()
             echo "PKG_LIBS = \$(R_STRIP_LINKER_OPTION)" \
                 >> src/$MAKEVARS_FILE.R_STRIP_LINKER_OPTION
         fi
-    elif [ "$CREATE_IF_MISSING" = "1" ]; then
+    elif [ "$CREATE_IF_MISSING" = "create-if-missing" ]; then
         # Place the proper value in R_STRIP_LINKER_OPTION
         echo "R_STRIP_LINKER_OPTION=\"$ARGUMENT\"" \
             >> src/$MAKEVARS_FILE.R_STRIP_LINKER_OPTION
@@ -184,6 +187,6 @@ fi
 if [ "$ARGUMENT" != "" ]; then
     echo "Compatible linkers found."
     
-    modify_makevars Makevars 1
-    modify_makevars Makevars.win 0
+    modify_makevars Makevars create-if-missing
+    modify_makevars Makevars.win
 fi
