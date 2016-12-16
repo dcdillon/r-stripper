@@ -2,7 +2,7 @@
 
 ### Description
 
-R, by default, leaves debugging symbols in the shared libraries it creates when building packages.  This can cause significantly bloated libraries (especially when templates are used).  r-stripper interrogates R about what linkers it will use when creating shared libraries.  If it finds that you are using linkers that accept a command line option to strip debuging symbols, it will add that configuration to your `src/Makevars` file.  If you don't have a `src/Makevars` file, it will create one at build time.
+R, on some platforms, leaves debugging symbols in the shared libraries it creates when building packages.  This can cause significantly bloated libraries (especially when templates are used).  r-stripper interrogates R about what linkers it will use when creating shared libraries.  If it finds that you are using linkers that accept a command line option to strip debuging symbols, it will add that configuration to your `src/Makevars` file.  If you don't have a `src/Makevars` file, it will create one at build time.
 
 ### Usage
 
