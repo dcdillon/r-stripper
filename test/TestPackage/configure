@@ -1,1 +1,1 @@
-../../stripper $1
+inst/tools/r-stripper/stripper $1

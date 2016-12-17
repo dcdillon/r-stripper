@@ -6,6 +6,27 @@ echo Testing from the command line
 
 pushd TestPackage
 
+if [ ! -d inst ]; then
+    mkdir inst
+fi
+
+pushd inst
+
+if [ ! -d tools ]; then
+    mkdir tools
+fi
+
+pushd tools
+
+if [ ! -d r-stripper ]; then
+    mkdir r-stripper
+fi
+
+popd
+popd
+
+cp ../../stripper* inst/tools/r-stripper
+
 echo Testing with bash - no PKG_LIBS
 cp src/Makevars.base src/Makevars
 bash ./configure
