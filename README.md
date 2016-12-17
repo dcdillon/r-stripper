@@ -6,8 +6,8 @@ R, on some platforms, leaves debugging symbols in the shared libraries it create
 
 ### Usage
 
-In your package, create an `inst/tools/stripper` directory.  Place `stripper` and `stripper.R` there.
-From your `configure` file, call `inst/tools/stripper`.
+In your package, create an `inst/tools/r-stripper` directory.  Place `stripper` and `stripper.R` there.
+From your `configure` file, call `inst/tools/r-stripper/stripper`.
 
 ### Supported Linkers
 
